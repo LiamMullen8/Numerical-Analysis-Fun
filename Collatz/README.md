@@ -20,7 +20,13 @@ e.g.
 
 ## Ideas/Approaches ##
 * investigate the rate of convergence of the sequence
-* if N is odd, F(N)=3*N+1. Now if this new value is a power of two, we know the sequence will directly converge to 1 at the fast rate as 
+* if N is odd, F(N)=3*N+1. Now if this new value is a power of two, we know the sequence will directly converge to 1 and there is no need to continue.
+  * This is useful for large inputs as it eliminates redundant computing.
+  * 
+
+### If a value appears twice in the sequence, this would show a counter example to the conjecture as it would show a cycle within the sequence that doesn't include 1. ###
+### If the sequence increases without bound the conjecture will be false. ###
+#### There are no examples of either of these case thus far. ####
 
 ```
 Best Case:
