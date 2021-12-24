@@ -22,11 +22,14 @@ e.g.
 * investigate the rate of convergence of the sequence
 * if N is odd, F(N)=3*N+1. Now if this new value is a power of two, we know the sequence will directly converge to 1 and there is no need to continue.
   * This is useful for large inputs as it eliminates redundant computing.
-  * 
 
 ### If a value appears twice in the sequence, this would show a counter example to the conjecture as it would show a cycle within the sequence that doesn't include 1. ###
 ### If the sequence increases without bound the conjecture will be false. ###
 #### There are no examples of either of these case thus far. ####
+
+The only way to approach a power of 2 is by having an odd number from below and performing 3*n + 1. otherwise the sequence would have performed n/2 on an even number that is greater. Since the number in question is a power of 2, the previous even term would have been, too.
+
+the odd numbers that will collapse immediately take the form:  N = 2m+1    F(N) = 3*N+1 = 2^k   =>    N = (2^k - 1)/3
 
 ```
 Best Case:
