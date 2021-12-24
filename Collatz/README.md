@@ -21,11 +21,12 @@ e.g.
 ## Ideas/Approaches ##
 * investigate the rate of convergence of the sequence
 * if N is odd, F(N)=3*N+1. Now if this new value is a power of two, we know the sequence will directly converge to 1 and there is no need to continue.
-  * This is useful for large inputs as it eliminates redundant computing.
+  * This is useful for large inputs as it eliminates redundant computing. 
 
 ### If a value appears twice in the sequence, this would show a counter example to the conjecture as it would show a cycle within the sequence that doesn't include 1. ###
 ### If the sequence increases without bound the conjecture will be false. ###
 #### There are no examples of either of these case thus far. ####
+
 
 The only way to approach a power of 2 is by having an odd number from below and performing 3*n + 1. otherwise the sequence would have performed n/2 on an even number that is greater. Since the number in question is a power of 2, the previous even term would have been, too.
 
@@ -36,5 +37,5 @@ Best Case:
 Powers of two will collapse the fastest as the sequence will be strictly decreasing through division of 2 - This would take O(logn) time to converge.
 
 Worst Case:
-It is hard to determine the worst case for this convergence of this sequence as it gives rise to very unpredictable behavior.
+It is hard to determine the worst case for this convergence of this sequence as it gives rise to very unpredictable behavior. will update as i figure out more
 ```
