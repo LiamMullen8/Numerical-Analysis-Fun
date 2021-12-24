@@ -31,4 +31,7 @@ e.g.
 ```
 Best Case:
 Powers of two will collapse the fastest as the sequence will be strictly decreasing through division of 2 - This would take O(logn) time to converge.
+
+Worst Case:
+It is hard to determine the worst case for this convergence of this sequence as it gives rise to very unpredictable behavior.
 ```
