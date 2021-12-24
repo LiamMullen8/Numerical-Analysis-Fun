@@ -9,7 +9,7 @@ X=[[] for i in range(10)]
 def collatz(i, N):
 	
 	#Z+ positive integers only :)
-	if(N==0):
+	if(N <= 0):
 		return
 	
 	X[i].append(N)
@@ -63,11 +63,9 @@ def graph():
 	plt.show()
 
 
-
-
 if __name__ == "__main__":
 	# graph()
 	q1=time.monotonic()
-	print(collapsing_odds(100000000))
+	print(collapsing_odds(1000000))
 	q2=time.monotonic()
-	print(f"Time: {q2-q1}")
+	print(f"Time for checking odds up to 1 million: {q2-q1}")
