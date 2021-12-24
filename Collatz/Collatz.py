@@ -3,7 +3,7 @@ import math
 import time
 
 #global so graph() and collatz() can access
-X=[[] for i in range(10)]
+X=[[] for i in range(15)]
 
 
 def collatz(i, N):
@@ -52,7 +52,7 @@ def collapsing_odds(N):
 
 
 def graph():
-	for i in range(1, 10):
+	for i in range(1, 15):
 		collatz(i, i)
 
 	plt.figure()
@@ -60,11 +60,14 @@ def graph():
 		print(X[i])
 		plt.plot(X[i])
 
+	plt.xlabel("time step (n)")
+	plt.ylabel("output f(n)")
+	plt.title("3N+1")
 	plt.show()
 
 
 if __name__ == "__main__":
-	# graph()
+	graph()
 	q1=time.monotonic()
 	print(collapsing_odds(1000000))
 	q2=time.monotonic()
