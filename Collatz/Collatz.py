@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import math
 import time
 
+L = int(input("Enter Range of Test Values: "))
 #global so graph() and collatz() can access
-X=[[] for i in range(15)]
+X=[[] for i in range(L)]
 
 
 def collatz(i, N):
@@ -12,6 +13,11 @@ def collatz(i, N):
 	if(N <= 0):
 		return
 	
+	for s in range(1,i):
+		if N in X[s]:
+			X[i].append("REP")
+			return
+
 	X[i].append(N)
 	
 	# base case 1 infinite cycle begins
@@ -52,23 +58,24 @@ def collapsing_odds(N):
 
 
 def graph():
-	for i in range(1, 15):
+	for i in range(1, L):
 		collatz(i, i)
 
 	plt.figure()
-	for i in range(1, len(X)):
-		print(X[i])
-		plt.plot(X[i])
+	for i in X:
+		print(i)
+		plt.plot(i)
 
 	plt.xlabel("time step (n)")
 	plt.ylabel("output f(n)")
 	plt.title("3N+1")
 	plt.show()
+	return
 
 
 if __name__ == "__main__":
-	graph()
 	q1=time.monotonic()
-	print(collapsing_odds(1000000))
+	print(f"Collapsing Odds within Range {L}: {collapsing_odds(L)}")
 	q2=time.monotonic()
-	print(f"Time for checking odds up to 1 million: {q2-q1}")
+	print(f"Time for checking odds up to {L}: {q2-q1}")
+	graph()
