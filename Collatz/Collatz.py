@@ -1,27 +1,27 @@
 import matplotlib.pyplot as plt
-import math
 import time
 
 L = int(input("Enter Range of Test Values: "))
 #global so graph() and collatz() can access
-X=[[] for i in range(L)]
+X = [[] for i in range(L)]
 
 
 def collatz(i, N):
 	
 	#Z+ positive integers only :)
-	if(N <= 0):
+	if N <= 0:
 		return
-	
-	for s in range(1,i):
-		if N in X[s]:
-			X[i].append("REP")
-			return
 
 	X[i].append(N)
-	
+
+	for s in range(1, i):
+		if N in X[s]:
+			# X[i].append(0)
+			return
+
+
 	# base case 1 infinite cycle begins
-	if(N==1):
+	if N == 1:
 		return 1
 	
 	# even
@@ -35,7 +35,9 @@ def collatz(i, N):
 
 ## check all odds up to some limit N
 def collapsing_odds(N):
-	odds=[]
+
+	odds = []
+
 	for i in range(1, N, 2): 
 		
 		# INITIAL APPROACH
@@ -57,25 +59,35 @@ def collapsing_odds(N):
 	return odds
 
 
-def graph():
+def run_collatz():
+
+	q1 = time.perf_counter()
 	for i in range(1, L):
 		collatz(i, i)
+	q2 = time.perf_counter()
+	print(f"Time for Collatz up to {L}: {q2-q1}")
 
-	plt.figure()
-	for i in X:
-		print(i)
-		plt.plot(i)
+	# plt.figure()
+	# for i in X[1:]:
+	# 	# print(f"{i[0]}: {i}")
+	# 	plt.plot(i)
+	#
+	# plt.xlabel("time step (n)")
+	# plt.ylabel("output f(n)")
+	# plt.title("3N+1")
+	# plt.show()
 
-	plt.xlabel("time step (n)")
-	plt.ylabel("output f(n)")
-	plt.title("3N+1")
-	plt.show()
+
 	return
 
 
 if __name__ == "__main__":
-	q1=time.monotonic()
+
+	# finding collapsing odds
+	q3 = time.perf_counter()
 	print(f"Collapsing Odds within Range {L}: {collapsing_odds(L)}")
-	q2=time.monotonic()
-	print(f"Time for checking odds up to {L}: {q2-q1}")
-	graph()
+	q4 = time.perf_counter()
+	print(f"Time for checking odds up to {L}: {q4-q3}")
+
+	# collatz up to L
+	run_collatz()
