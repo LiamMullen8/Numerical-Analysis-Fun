@@ -72,19 +72,16 @@ def run_collatz():
 	q2 = time.perf_counter()
 	print(f"Time for Collatz up to {L}: {q2-q1} seconds")
 
-	# for i in X:
-	# 	print(i.keys())
 
-	# plt.figure()
-	# for i in X[1:]:
-	# 	# print(f"{i[0]}: {i}")
-	# 	plt.plot(i)
-	#
-	# plt.xlabel("time step (n)")
-	# plt.ylabel("output f(n)")
-	# plt.title("3N+1")
-	# plt.show()
+	plt.figure()
+	for i in X[1:]:
+		print(i.keys())
+		plt.plot(i.keys())
 
+	plt.xlabel("time step (n)")
+	plt.ylabel("output f(n)")
+	plt.title("3N+1")
+	plt.show()
 
 	return
 
