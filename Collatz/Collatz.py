@@ -2,15 +2,18 @@ import matplotlib.pyplot as plt
 import time
 
 L = int(input("Enter Range of Test Values: "))
+if L <= 0:
+	raise Exception("Z+ positive integers only :)")
+
 #global so graph() and collatz() can access
 X = [[] for i in range(L)]
 
 
 def collatz(i, N):
 	
-	#Z+ positive integers only :)
+	#Z+ positive integers only :) double check just to be sure ^^
 	if N <= 0:
-		return
+		raise Exception("Z+ positive integers only :)")
 
 	X[i].append(N)
 
