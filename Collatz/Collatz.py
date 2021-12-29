@@ -6,7 +6,7 @@ if L <= 0:
 	raise Exception("Z+ positive integers only :)")
 
 #global so graph() and collatz() can access
-X = [[] for i in range(L)]
+X = [{} for i in range(L)]
 
 
 def collatz(i, N):
@@ -15,8 +15,10 @@ def collatz(i, N):
 	if N <= 0:
 		raise Exception("Z+ positive integers only :)")
 
-	X[i].append(N)
+	# add N to dict, dict maintains order
+	(X[i])[N] = None
 
+	# total O(n) lookup => each dict is O(1), iter thru list of dicts
 	for s in range(1, i):
 		if N in X[s]:
 			# X[i].append(0)
@@ -68,7 +70,10 @@ def run_collatz():
 	for i in range(1, L):
 		collatz(i, i)
 	q2 = time.perf_counter()
-	print(f"Time for Collatz up to {L}: {q2-q1}")
+	print(f"Time for Collatz up to {L}: {q2-q1} seconds")
+
+	# for i in X:
+	# 	print(i.keys())
 
 	# plt.figure()
 	# for i in X[1:]:
@@ -88,9 +93,9 @@ if __name__ == "__main__":
 
 	# finding collapsing odds
 	q3 = time.perf_counter()
-	print(f"Collapsing Odds within Range {L}: {collapsing_odds(L)}")
+	print(f"Collapsing Odds within Range {L}: {collapsing_odds(L)} seconds")
 	q4 = time.perf_counter()
-	print(f"Time for checking odds up to {L}: {q4-q3}")
+	print(f"Time for checking odds up to {L}: {q4-q3} seconds")
 
 	# collatz up to L
 	run_collatz()
