@@ -1,4 +1,5 @@
 # Collatz Conjecture #
+*This readme is meant to be more of a notepad of ideas as this investigation develops, not a documentation/project structure*
 
 - proposed by Lothar Collatz (1910-1990)
 ```
@@ -6,6 +7,8 @@ Rules:
 if N is odd,  F(N) = 3*N + 1
 if N is even, F(N) = N / 2 
 ```
+
+
 
 By following these two simple rules/arithmetic operations, it is conjectured that every natural number will collapse down to 1.
 
